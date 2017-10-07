@@ -1,4 +1,4 @@
-package dropbox;
+package drives.dropbox;
 
 
 import java.io.FileInputStream;
@@ -33,7 +33,7 @@ public class TestV2 {
     TestV2()
     {
         // Create Dropbox client
-        config = new DbxRequestConfig("dropbox/java-tutorial");
+        config = new DbxRequestConfig("dropbox/java-tutorial",null);
         client = new DbxClientV2(config, ACCESS_TOKEN);
         
         try {

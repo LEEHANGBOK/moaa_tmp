@@ -87,45 +87,6 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
    
   <style>
-      #container {
-         width:1000px;
-         margin:0 auto;
-         float : left;
-      }
-      .tab {
-         list-style: none;
-         margin: 0;
-         padding: 0;
-         overflow: hidden;
-
-      }
-      /* Float the list items side by side */
-      .tab li {
-         float: left;
-         
-      }
-      /* Style the links inside the list items */
-      .tab li a {
-         display: inline-block;
-         color: #000;
-         text-decoration: none;
-         padding: 14px 16px;
-         font-size: 15px;
-         transition:0.3s;
-      }
-      /* Style the tab content */
-      .tabcontent {
-         display: none;
-         padding: 6px 12px;
-      }
-      ul.tab li.current{
-         background-color: white;
-         color: black;
-         font-weight : bold;
-      }
-      .tabcontent.current {
-         display: block;
-      }
       
       #checkboxTbl tr.selected{font-weight: bold;}
    </style>
@@ -172,6 +133,19 @@
         });
 
     </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+		<script type="text/javascript">
+		$(function(){
+		  $('.btn_show').click(function(){
+		    $('.btn_list').show();
+		    $('.btn_icon').hide();
+		  });
+		  $('.btn_hide').click(function(){
+		    $('.btn_list').hide();
+		    $('.btn_icon').show();
+		  });
+		});
+	</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -479,20 +453,17 @@
 				 </form> 					
 				</div>
 				
-				      <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                          <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a href="dashboard.jsp">자세히 보기</a></li>
-                          <li><a href="dashboard_icon.jsp">아이콘 보기</a></li>
-                        </ul>
-                      </div>
+				<div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn_show"><i class="fa fa-list"></i></button>
+                        <button type="button" class="btn btn-default btn_hide"><i class="fa fa-th"></i></button>
+                        
+                 </div>       
 				 	
           
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <div class="btn_list">
 			<div class="table-responsive">
                <form>
                  <table id="checkboxTbl" class="table no-margin">
@@ -661,6 +632,152 @@
                 </table>
                 </form>
               </div>
+              </div>
+              <div class="btn_icon" style="display: none;">
+               <form>
+                 <ul id="checkboxTbl" style="list-style-type: none; margin:0; padding:0;">
+
+                 	                 <%
+                  for(File tempFile : fileList){
+                     if(tempFile.isFile()) {
+                  %>
+                 		<li style = "padding-top: 30px; padding-left:30px; padding-right:50px; float:left;">
+                 			<input type="checkbox" name="selectfile" value="1" /><p>
+                 			<%
+                    	String tempFileName=tempFile.getName();
+                        int j= tempFileName.indexOf(".");
+                    	switch(tempFileName.substring(j+1)){
+                    	case "pdf":
+                    		%><img src="etc/iconimage/icon_pdf.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "jpg":
+                    		%>
+                    		<img src="etc/iconimage/icon_jpg.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "png":
+                    		%>
+                    		<img src="etc/iconimage/icon_png.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "PNG":
+                    		%>
+                    		<img src="etc/iconimage/icon_png.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "html":
+                    		%>
+                    		<img src="etc/iconimage/icon_html.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "css":
+                    		%>
+                    		<img src="etc/iconimage/icon_css.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "xlsx":
+                    		%>
+                    		<img src="etc/iconimage/icon_excel.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "exe":
+                    		%>
+                    		<img src="etc/iconimage/icon_exe.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "mp3":
+                    		%>
+                    		<img src="etc/iconimage/icon_mp3.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "txt":
+                    		%>
+                    		<img src="etc/iconimage/icon_txt.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "pptx":
+                    		%>
+                    		<img src="etc/iconimage/icon_powerpoint.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "avi":
+                    		%>
+                    		<img src="etc/iconimage/icon_avi.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "wmv":
+                    		%>
+                    		<img src="etc/iconimage/icon_video.png" width="120" height="120">
+                    	<%
+                    	break;
+                    	case "mp4":
+                    		%>
+                    		<img src="etc/iconimage/icon_mp4.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "docx":
+                    		%>
+                    		<img src="etc/iconimage/icon_word.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "war":
+                    		%>
+                    		<img src="etc/iconimage/icon_zip.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	case "zip":
+                    		%>
+                    		<img src="etc/iconimage/icon_zip.png" width="120" height="120">
+                    		<%
+                    	break;
+                    	default : 
+                    		%>
+                    		<img src="etc/iconimage/icon_default.png" width="120" height="120">
+                    		<%
+                    	}
+                    	%><p>
+                    	<div align="center">
+                    	<%
+                        out.write("<a href=\"" + request.getContextPath() + "/FileDownload?filename=" + java.net.URLEncoder.encode(tempFileName, "UTF-8") + "\">" + tempFileName.substring(0,j) + "</a><br>");
+                        %></div><p>
+                        <div align="center" style="color:  #808080">
+                        <%
+                     		long length = tempFile.length();
+                           double LengthbyUnit = (double)length;
+                           int Unit=0;
+                           while(LengthbyUnit >1024 && Unit<5){
+                              LengthbyUnit = LengthbyUnit/1024;
+                              Unit++;
+                           }
+                           DecimalFormat df = new DecimalFormat("#,##0.00");
+                           out.println(df.format(LengthbyUnit));
+                           switch(Unit){
+                           case 0:
+                           out.println("Bytes");
+                           break;
+                           case 1:
+                           out.println("KB");
+                           break;
+                           case 2:
+                           out.println("MB");
+                           break;
+                           case 3:
+                           out.println("GB");
+                           break;
+                           case 4:
+                           out.println("TB");
+                           break;
+                           }                           
+                           %></div>
+                 		</li>
+                 		<%
+                     }
+                  }
+                 		%>
+                 </ul>
+                </form>
+                </div>
             </div>
             <!-- ./box-body -->
           </div>

@@ -1,13 +1,53 @@
+
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.io.File"%>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.util.*"%>
-<% request.setCharacterEncoding("UTF-8"); 
-	String user_domain;%>
-<% String saveDir = "/home/andrew/Desktop/jpg"; //절대경로 입력 시 해당 디렉토리에 있는 파일들을 페이지 상에 출력, 클릭 시 다운로드 가능
-File dir = new File(saveDir);
-File[] fileList = dir.listFiles(); %>
+
+
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<%
+	String driver = "com.mysql.jdbc.Driver";
+	Class.forName(driver);
+	
+	// 관리자 Login
+	String url = "jdbc:mysql://localhost:3306/moaa";
+	String id = "root";
+	String pw = "andrew12345";
+	
+	// 연결
+	Connection conn = DriverManager.getConnection(url, id, pw);
+	
+	int session_id = (int) session.getAttribute("key_id");
+	System.out.println(session_id);
+	
+	Statement st = conn.createStatement();
+	// 내가 입려한 id와 pw 값이 DB안에 있는지 확인한다
+	String sql = "SELECT domain_path FROM users_domain WHERE users_id='" + session_id + "'";
+	
+	ResultSet rs = st.executeQuery(sql);
+	String user_domain_path="";
+	
+	while(rs.next()) {
+	
+		//key_id에 디비 값을 저장 : (주의)while문 안에서만 실행된다.
+		user_domain_path = rs.getString("domain_path");
+	}
+
+
+	//절대경로 입력 시 해당 디렉토리에 있는 파일들을 페이지 상에 출력, 클릭 시 다운로드 가능
+	String saveDir = "/home/andrew/Desktop/Workspace/dirPractice/" + user_domain_path;
+	/* String saveDir = "/home/andrew/Desktop/jpg"; */
+	File dir = new File(saveDir);
+	File[] fileList = dir.listFiles(); 
+	
+%>
 
 <%
     // 현재 로그인된 아이디가 있다면 (= session에 저장된 id가 있다면)
@@ -399,6 +439,7 @@ File[] fileList = dir.listFiles(); %>
 
     <!-- Main content -->
     
+    
     <section class="content">
       <!-- Info boxes -->
       
@@ -468,8 +509,8 @@ File[] fileList = dir.listFiles(); %>
                   <tbody>
                   
                   <%
-                  for(File tempFile : fileList){
-                     if(tempFile.isFile()) {
+	                  for(File tempFile : fileList){
+	                     if(tempFile.isFile()) {
                   %>
                     <tr>
                     	
@@ -861,7 +902,7 @@ File[] fileList = dir.listFiles(); %>
 </html>
 
 <%
-    } 
+    }
     // 현재 로그인된 아이디가 없다면 (= session에 저장된 id가 없다면)
     else {
     	response.sendRedirect("sign_in.jsp");

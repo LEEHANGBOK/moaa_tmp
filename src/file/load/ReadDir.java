@@ -57,47 +57,47 @@ public class ReadDir {
 	}
 	public void read(String dir) {
 		String path=dir;
-				File dirFile=new File(path);
-				File []fileList=dirFile.listFiles();
-				int size = fileList.length;
-				
-				totallist = new String[size];
-				
-				int drivesize = size/3;
-				int flag =0;
-				int fluence = 0;
-				Googlelist = new String[drivesize];
-				Boxlist = new String[drivesize];
-				Droplist = new String[drivesize];
-				for(File tempFile : fileList) {
-				  if(tempFile.isFile()) {
-				    String tempPath=tempFile.getParent();
-				    String tempFileName=tempFile.getName();
-				    System.out.println("Path="+tempPath);
-				    System.out.println("FileName="+tempFileName);
-//				    totallist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
-//				    fluence++;
-				    switch(flag) {
-				    case 0  :System.out.println("G: " + flag +", fluence :" + fluence + ", size : "+ Googlelist.length); 
-				    	Googlelist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
-				    			flag = 1;
-				    			break;
-				    case 1  :System.out.println("B: " + flag +", fluence :" + fluence + ", size : "+ Boxlist.length); 
-				    	Boxlist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
-	    						flag = 2;
-	    						break;
-	    					
-				    case 2  : System.out.println("D: " + flag +", fluence :" + fluence + ", size : "+ Droplist.length);   
-				    	Droplist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
-				    			flag = 0;
-				    			fluence++;
-				    			break;
-				    	default : System.out.println("finish");
-				    			break;
-				    }
-				    
-				  }
-				}
+		File dirFile=new File(path);
+		File []fileList=dirFile.listFiles();
+		int size = fileList.length;
+		
+		totallist = new String[size];
+		
+		int drivesize = size/3;
+		int flag =0;
+		int fluence = 0;
+		Googlelist = new String[drivesize];
+		Boxlist = new String[drivesize];
+		Droplist = new String[drivesize];
+		for(File tempFile : fileList) {
+		  if(tempFile.isFile()) {
+		    String tempPath=tempFile.getParent();
+		    String tempFileName=tempFile.getName();
+		    System.out.println("Path="+tempPath);
+		    System.out.println("FileName="+tempFileName);
+//			totallist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
+//			fluence++;
+		    switch(flag) {
+			    case 0  :System.out.println("G: " + flag +", fluence :" + fluence + ", size : "+ Googlelist.length); 
+			    	Googlelist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
+	    			flag = 1;
+	    			break;
+			    case 1  :System.out.println("B: " + flag +", fluence :" + fluence + ", size : "+ Boxlist.length); 
+			    	Boxlist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
+					flag = 2;
+					break;
+						
+			    case 2  : System.out.println("D: " + flag +", fluence :" + fluence + ", size : "+ Droplist.length);   
+			    	Droplist[fluence] = tempPath+System.getProperty("file.separator")+tempFileName;
+	    			flag = 0;
+	    			fluence++;
+	    			break;
+		    	default : System.out.println("finish");
+    				break;
+		    }
+		    
+		  }
+		}
 	}
 	
 	
@@ -146,6 +146,7 @@ public class ReadDir {
 	
 		dir.read(directory);
 		
+		// Token은 해당 유저의 데이터베이스로부터 추출
 		String Drop_access_token="kFb_ENWtmyUAAAAAAAAAhsfjcyGuzOLDc5MDHdDGU41xjFGFsUVztfzO_TkF9Wo6";
 		String Box_access_token="nxlisAU9KiiXOjRNjFHm8DPtdYDSxlXN";
 		String google_access_token="ya29.GlzbBFtyRVlaunQf67PR7C5HRuN3ztdayD1EdRu7AZr6v-9zEWYA9KAo3k07TkVbgvlsbsPiLfJPTaM4gJqzEXxcj3zPdFw0Mb2U_oDzOo87IiG3Fyepjpu_PEsnfA";
@@ -154,7 +155,6 @@ public class ReadDir {
 		UploadTest upload = new UploadTest();
 		
 		BoxUp box = new BoxUp(Boxlist, Box_access_token);
-		
 		DropboxUp drop = new DropboxUp(Droplist, Drop_access_token);
 		GoogleUp google = new GoogleUp(Googlelist, google_access_token);
 		box.start();

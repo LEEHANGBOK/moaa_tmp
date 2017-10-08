@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
  */
 //@WebServlet("/login")
 public class LoginCheck extends HttpServlet {
-//	private static final long serialVersionUID = 1L;
-	private static final long serialVersionUID = 102831973239L;
+	private static final long serialVersionUID = 1L;
+//	private static final long serialVersionUID = 102831973239L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -68,9 +68,14 @@ public class LoginCheck extends HttpServlet {
 	        
 	        // isLogin 은 로그인 확인 유무를 위한 변수
 	        Boolean isLogin = false;
+	        
+	        // 사용자 email과 부합하는 고유의 id값을 초기화
+	        int key_id = 0;
 	        while(rs.next()) {
 	            // rs.next가 true 라면 = 정보가 있다
 	            isLogin = true;
+	            //key_id에 디비 값을 저장 : (주의)while문 안에서만 실행된다.
+	            key_id = rs.getInt("id");
 	        }
 	        
 	        // Session 처리를 위한 객체 선언 및 세션 할당
@@ -81,8 +86,15 @@ public class LoginCheck extends HttpServlet {
 	            // 지금 로그인할 id와 pw를 session에 저장하고
 	            session.setAttribute("id", user_id);
 	            session.setAttribute("pw", user_pw);
-	            // 첫 페이지로 돌려보낸다
+	            session.setAttribute("key_id", key_id);
+	            
+	            System.out.println("session's user email : " + session.getAttribute("id"));
+	            System.out.println("session's user id : " + session.getAttribute("key_id"));
+
+	            
+	            	// 첫 페이지로 돌려보낸다
 	            response.sendRedirect("dashboard.jsp");    
+	            
 	        } else {
 	        	
 	        		// 응답하기 위한 출력 스트림 얻어오기

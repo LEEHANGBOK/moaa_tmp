@@ -74,7 +74,7 @@ public class MakeUserDomain extends HttpServlet {
             System.out.println("it was successful to save new user's domain path into DB");
 			
 			// 회원가입에 성공하고 도메인 생성 성공시 로그인 페이지로 보낸다
-            response.sendRedirect("sign_in.jsp");    
+            response.sendRedirect("sign_in.jsp");
 			
 		} catch (NoSuchAlgorithmException e) {
 			e.getStackTrace();

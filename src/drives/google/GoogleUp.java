@@ -71,6 +71,7 @@ public class GoogleUp extends Thread {
 		    java.io.File fileContent = new java.io.File(path);
 		    FileContent mediaContent = new FileContent(mimeType, fileContent);
 		    try {
+		    	// input change => 서버 도메인으로 로그파일 자동생성
 		    	BufferedWriter a = new BufferedWriter(new FileWriter(System.getProperty("user.home")+System.getProperty("file.separator")+"mission_temp"+System.getProperty("file.separator")+"logfile_Google.txt",true));
 		    	File file = service.files().insert(body, mediaContent).execute();
 	

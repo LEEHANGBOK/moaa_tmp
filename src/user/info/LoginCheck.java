@@ -71,11 +71,13 @@ public class LoginCheck extends HttpServlet {
 	        
 	        // 사용자 email과 부합하는 고유의 id값을 초기화
 	        int key_id = 0;
+	        String user_name ="";
 	        while(rs.next()) {
 	            // rs.next가 true 라면 = 정보가 있다
 	            isLogin = true;
 	            //key_id에 디비 값을 저장 : (주의)while문 안에서만 실행된다.
 	            key_id = rs.getInt("id");
+	            user_name = rs.getString("user_name");
 	        }
 	        
 	        // Session 처리를 위한 객체 선언 및 세션 할당
@@ -86,12 +88,13 @@ public class LoginCheck extends HttpServlet {
 	            // 지금 로그인할 id와 pw를 session에 저장하고
 	            session.setAttribute("id", user_id);
 	            session.setAttribute("pw", user_pw);
+	            session.setAttribute("user_name", user_name);
 	            session.setAttribute("key_id", key_id);
 	            
 	            System.out.println("session's user email : " + session.getAttribute("id"));
 	            System.out.println("session's user id : " + session.getAttribute("key_id"));
+	            System.out.println("session's user name : " + session.getAttribute("user_name"));
 
-	            
 	            	// 첫 페이지로 돌려보낸다
 	            response.sendRedirect("dashboard.jsp");    
 	            

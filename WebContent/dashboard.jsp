@@ -33,6 +33,7 @@
 	
 	ResultSet rs = st.executeQuery(sql);
 	String user_domain_path="";
+	String user_name = (String) session.getAttribute("user_name");
 	
 	while(rs.next()) {
 	
@@ -295,7 +296,9 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Sunmin Wei</span>
+              <span class="hidden-xs">
+              	<%= user_name %>
+              </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -303,7 +306,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Sunmin Wei - Administrator
+                  <%= user_name %>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -311,7 +314,7 @@
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                    <a href="setting.jsp">Drives</a>
                   </div>
                   <div class="col-xs-4 text-center">
                     <a href="#">Sales</a>
@@ -325,7 +328,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="settig.jsp" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout_check" class="btn btn-default btn-flat">Sign out</a>
@@ -352,7 +355,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Sunmin wei</p>
+          <p><%= user_name %></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -371,7 +374,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="index.jsp"><i class="fa fa-dashboard"></i><span> Dashboard </span></a></li>
+        <li><a href="dashboard.jsp"><i class="fa fa-dashboard"></i><span> Dashboard </span></a></li>
         <li><a href="setting.jsp"><i class="fa fa-cogs"></i><span> Setting </span></a></li>
         
         
@@ -426,8 +429,8 @@
 					<form action="fileupload.jsp" method="post"  enctype="multipart/form-data">
 					<input type="file" multiple id="file" name="userfile" style="display:inline" >
 					<script>
-					var curStyle=document.getElementById("file").style.display;
-						document.getElementById("file").style.display="none";
+						var curStyle=document.getElementById("file").style.display;
+							document.getElementById("file").style.display="none";
 					</script>
 					<button id="newFile" onclick="check()" class="btn btn-default">올리기</button>	
 					<button type="button" class="btn btn-default">내려받기</button>

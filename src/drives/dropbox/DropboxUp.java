@@ -32,8 +32,9 @@ public class DropboxUp extends Thread {
 			    DbxClientV2 client = null;
 			    FullAccount account2 = null;
 			    config2 = new DbxRequestConfig("dropbox/java-tutorial",null);
-		        client = new DbxClientV2(config2, ACCESS_TOKEN);
+		        client = new DbxClientV2(config2, ACCESS_TOKEN);// input change => 서버 도메인으로 로그파일 자동생성
 		        try {
+		        	// input change => 서버 도메인으로 로그파일 자동생성
 					BufferedWriter a = new BufferedWriter(new FileWriter(System.getProperty("user.home")+System.getProperty("file.separator")+"mission_temp"+System.getProperty("file.separator")+"logfile_Drop.txt",true));
 				
 		        try {
@@ -53,7 +54,7 @@ public class DropboxUp extends Thread {
 		        	int n = path.lastIndexOf("/");
 		        	int size = path.length();
 		        	
-		        //저장된 파일경
+		        		//저장된 파일경
 		        	String foldername = folderName+path.substring(n+1, size);
 		        	
 		        	

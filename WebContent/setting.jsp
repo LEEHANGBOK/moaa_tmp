@@ -38,7 +38,13 @@ String fName[] = dir.list(); %>
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<<<<<<< HEAD:WebContent/setting_v2.jsp
 <body class="hold-transition skin-blue sidebar-mini">
+=======
+
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+>>>>>>> 4de3b250c713a0dbe0a09201748fa45a1b6b2769:WebContent/setting.jsp
 <div class="wrapper">
 
   <header class="main-header">
@@ -62,6 +68,7 @@ String fName[] = dir.list(); %>
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
 
+<<<<<<< HEAD:WebContent/setting_v2.jsp
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -203,6 +210,66 @@ String fName[] = dir.list(); %>
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
+=======
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="dashboard.jsp">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="setting_v2.jsp">Setting</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Drive <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
+            </div>
+          </form>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2012</small>
+                  </p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="row">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+>>>>>>> 4de3b250c713a0dbe0a09201748fa45a1b6b2769:WebContent/setting.jsp
                   </div>
                   <div class="col-xs-4 text-center">
                     <a href="#">Sales</a>
@@ -349,22 +416,22 @@ String fName[] = dir.list(); %>
 			            <div class="table-responsive">
 			            <p>
 			            	<form>
-			            	<table class="table no-margin">
-			            	<tbody style="padding-top: 100px;">
-			            	<tr>
-			            	<td width="30%" ><b>이메일</b></td>
-			            	<td width="70%">tjsa********@gmail.com</td>
-			            	</tr>
-			            	<tr>
-			            	<td width="30%"><b>비밀번호</b></td>
-			            	<td width="70%">*********</td>
-			            	</tr>
-			            	</tbody>
-			            	</table>
-			            	<div style="padding-top: 80px; padding-left: 30px;">
-					          <p><p>
-							  <input type="button" name="modify_profile" onclick="location.href='dashboard.jsp'"class="btn btn-block btn-default" value ="비밀번호 변경" style="width:90pt; height:30pt;">
-			            	</div>
+				            	<table class="table no-margin">
+					            	<tbody style="padding-top: 100px;">
+						            	<tr>
+							            	<td width="30%" ><b>이메일</b></td>
+							            	<td width="70%">tjsa********@gmail.com</td>
+						            	</tr>
+						            	<tr>
+							            	<td width="30%"><b>비밀번호</b></td>
+							            	<td width="70%">*********</td>
+						            	</tr>
+					            	</tbody>
+				            	</table>
+				            	<div style="padding-top: 80px; padding-left: 30px;">
+							        <p><p>
+									<input type="button" name="modify_profile" onclick="location.href='dashboard.jsp'"class="btn btn-block btn-default" value ="비밀번호 변경" style="width:90pt; height:30pt;">
+				            	</div>
 			                </form>
 			            </div>
 			          </div>

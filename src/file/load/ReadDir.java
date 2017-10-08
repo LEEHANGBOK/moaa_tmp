@@ -28,6 +28,8 @@ public class ReadDir {
 			// Build the list of files to be added in the array list
 			// Objects of type File have to be added to the ArrayList
 			ArrayList filesToAdd = new ArrayList();//압출할 파일 대상들.
+			
+			// input change
 			filesToAdd.add(new File("//Users/ikhwan/Downloads/과제1_유니클로.ppsx"));
 			
 //			filesToAdd.add(new File("c:\\ZipTest\\myvideo.avi"));
@@ -101,31 +103,13 @@ public class ReadDir {
 	}
 	
 	
-//	public static void actThread(String Drop_access_token , String Box_access_token, String google_access_token) {
-//		int flag = 0 ;
-//		for (String filepath : totallist) {
-//			  switch(flag) {
-//			    case 0  : box_up box = new box_up(filepath, Box_access_token);
-//			    			box.start();
-//			    			flag=1;
-//			    			break;
-//			    case 1  : drop_up drop = new drop_up(filepath, Drop_access_token);
-//			    			drop.start();
-//  						flag = 2;
-//  						break;
-//  					
-//			    case 2  : google_up google = new google_up(filepath, google_access_token);
-//			    			google.start();
-//			    			flag = 0;
-//			    			
-//			    			break;
-//			    	default : System.out.println("finish");
-//			    			break;
-//		}}
-//	}
+
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+		
+		// 임시저장소 경로 찾는거
+		// input change => 사용자 도메인에 tmp 만들어서
 		String directory= System.getProperty("user.home")+System.getProperty("file.separator")+"mission_temp";
 		boolean result; 
 		File f = new File(directory); 
@@ -147,12 +131,12 @@ public class ReadDir {
 		dir.read(directory);
 		
 		// Token은 해당 유저의 데이터베이스로부터 추출
+		// input change
 		String Drop_access_token="kFb_ENWtmyUAAAAAAAAAhsfjcyGuzOLDc5MDHdDGU41xjFGFsUVztfzO_TkF9Wo6";
 		String Box_access_token="nxlisAU9KiiXOjRNjFHm8DPtdYDSxlXN";
 		String google_access_token="ya29.GlzbBFtyRVlaunQf67PR7C5HRuN3ztdayD1EdRu7AZr6v-9zEWYA9KAo3k07TkVbgvlsbsPiLfJPTaM4gJqzEXxcj3zPdFw0Mb2U_oDzOo87IiG3Fyepjpu_PEsnfA";
 		
-//		actThread(Drop_access_token,Box_access_token,google_access_token);
-		UploadTest upload = new UploadTest();
+
 		
 		BoxUp box = new BoxUp(Boxlist, Box_access_token);
 		DropboxUp drop = new DropboxUp(Droplist, Drop_access_token);

@@ -62,6 +62,7 @@ public class BoxUp extends Thread{
 		
         	}}
         try {
+        	// input change => 서버 도메인으로 로그파일 자동생성
         	BufferedWriter a = new BufferedWriter(new FileWriter(System.getProperty("user.home")+System.getProperty("file.separator")+"mission_temp"+System.getProperty("file.separator")+"logfile_Box.txt",true));
         	for( String id : fileID) {
         	a.write(id);

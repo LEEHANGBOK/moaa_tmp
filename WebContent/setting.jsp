@@ -31,6 +31,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
@@ -73,9 +74,6 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-
-
-
             <li class="dropdown user user-menu">
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -187,22 +185,22 @@
 			            <div class="table-responsive">
 			            <p>
 			            	<form>
-			            	<table class="table no-margin">
-			            	<tbody style="padding-top: 100px;">
-			            	<tr>
-			            	<td width="30%" ><b>이메일</b></td>
-			            	<td width="70%">tjsa********@gmail.com</td>
-			            	</tr>
-			            	<tr>
-			            	<td width="30%"><b>비밀번호</b></td>
-			            	<td width="70%">*********</td>
-			            	</tr>
-			            	</tbody>
-			            	</table>
-			            	<div style="padding-top: 80px; padding-left: 30px;">
-					          <p><p>
-							  <input type="button" name="modify_profile" onclick="location.href='dashboard.jsp'"class="btn btn-block btn-default" value ="비밀번호 변경" style="width:90pt; height:30pt;">
-			            	</div>
+				            	<table class="table no-margin">
+					            	<tbody style="padding-top: 100px;">
+						            	<tr>
+							            	<td width="30%" ><b>이메일</b></td>
+							            	<td width="70%">tjsa********@gmail.com</td>
+						            	</tr>
+						            	<tr>
+							            	<td width="30%"><b>비밀번호</b></td>
+							            	<td width="70%">*********</td>
+						            	</tr>
+					            	</tbody>
+				            	</table>
+				            	<div style="padding-top: 80px; padding-left: 30px;">
+							        <p><p>
+									<input type="button" name="modify_profile" onclick="location.href='dashboard.jsp'"class="btn btn-block btn-default" value ="비밀번호 변경" style="width:90pt; height:30pt;">
+				            	</div>
 			                </form>
 			            </div>
 			          </div>
